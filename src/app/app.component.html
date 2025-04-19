@@ -27,8 +27,14 @@
             </ion-item>
           </ion-menu-toggle>
           }
-        </ion-list> 
+        </ion-list>
       </ion-content>
+      <ion-footer>
+        <ion-button fill="clear" color="danger" (click)="signOut()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          Cerrar sesión
+        </ion-button>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>

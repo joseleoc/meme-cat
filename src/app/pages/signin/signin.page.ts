@@ -71,7 +71,10 @@ export class SigninPage implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
+    this.menuCtrl.close();
     this.menuCtrl.enable(false);
   }
 

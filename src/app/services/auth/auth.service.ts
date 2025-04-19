@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   User,
 } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class AuthService {
   private auth = inject(Auth);
   private authState$ = authState(this.auth);
   private authStateSubscription: Subscription;
+  private router = inject(Router);
 
   constructor() {
     this.authStateSubscription = this.authState$.subscribe(
@@ -39,6 +41,7 @@ export class AuthService {
   public async signOut() {
     try {
       await this.auth.signOut();
+      this.router.navigateByUrl('/signin');
     } catch (error) {
       throw error;
     }

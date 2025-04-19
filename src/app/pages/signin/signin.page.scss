@@ -2,3 +2,13 @@ ion-note{
     color: red;
     padding-left: 1rem;
 }
+
+.container{
+display: flex;
+flex: 1;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+
