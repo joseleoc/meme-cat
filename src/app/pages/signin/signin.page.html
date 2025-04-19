@@ -1,0 +1,57 @@
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Inicio de sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-input formControlName="email" label="Email"></ion-input>
+        </ion-item>
+        @if(email?.invalid && (email?.dirty || email?.touched)){
+        @if(email?.hasError('required')){
+        <ion-note>El email es requerido</ion-note>
+        } @if(email?.hasError('email')){
+        <ion-note>El email no es valido</ion-note>
+        } }
+
+        <ion-item>
+          <ion-input
+            label="Contraseña"
+            type="password"
+            formControlName="password"
+          >
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        @if(password?.invalid && (password?.dirty || password?.touched)){
+        @if(password?.hasError('required')){
+        <ion-note>El password es requerido</ion-note>
+        } @if(password?.hasError('minlength')){
+        <ion-note> 6 caracteres mínimos</ion-note>
+        } }
+
+        <ion-button
+          type="submit"
+          expand="block"
+          [disabled]="isLoading()"
+          class="ion-margin-top"
+        >
+          @switch (isLoading()) { @case (true) {
+          <ion-spinner></ion-spinner>
+          } @case(false){ Iniciar sesión } }
+        </ion-button>
+
+        <div class="ion-text-center ion-margin-top">
+          <p>
+            Don't have an account?
+            <ion-button fill="clear" size="small" routerLink="/signup">
+              Sign Up
+            </ion-button>
+          </p>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

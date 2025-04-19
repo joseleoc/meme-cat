@@ -1,0 +1,7 @@
+{
+  "name": "meme-cat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

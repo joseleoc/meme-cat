@@ -1,0 +1,36 @@
+<ion-card>
+  <img src="{{ meme().imageUrl }}" class="meme-image" />
+  <ion-card-content>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{ meme().avatar }}" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ meme().userName }}</h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="shareMeme(meme())">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card-content>
+
+  <div class="meme-actions">
+    <ion-button
+      size="small"
+      fill="clear"
+      (click)="saveMeme(meme())"
+      color="primary"
+    >
+      <ion-icon [name]="meme().saved ? 'bookmark' : 'bookmark-outline'" />
+    </ion-button>
+
+    <ion-button
+      size="small"
+      fill="clear"
+      (click)="likeMeme(meme())"
+      color="danger"
+    >
+      <ion-icon [name]="meme().liked ? 'heart' : 'heart-outline'" />
+    </ion-button>
+  </div>
+</ion-card>

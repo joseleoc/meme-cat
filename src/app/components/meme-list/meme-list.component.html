@@ -1,0 +1,7 @@
+
+  <ion-list class="meme-list">
+    @for(meme of memes(); track meme.id) {
+      <app-meme-item [meme]="meme"></app-meme-item>
+    }
+  </ion-list>
+
